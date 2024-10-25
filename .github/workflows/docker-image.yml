@@ -18,13 +18,13 @@ jobs:
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
   
     - name: Login to Docker Hub
-      uses: docker/login-action@v1 
+      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
       with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
     - name: Push Docker image to Docker Hub
       run: |
-          docker push username/my-app:latest
-          docker push username/my-app:${{ github.sha }}
+          docker push yishuihan2009/qltoolsv2-zan:latest
+          docker push yishuihan2009/qltoolsv2-zan:${{ github.sha }}
 
